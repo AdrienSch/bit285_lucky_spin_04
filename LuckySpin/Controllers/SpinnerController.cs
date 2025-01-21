@@ -4,22 +4,24 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using LuckySpin.Models;
 using LuckySpin.Services;
+using Microsoft.VisualBasic;
 
 namespace LuckySpin.Controllers
 {
     public class SpinnerController : Controller
     {
         //DIJ in 4 STEPS -
-        //TODO: 0) Register the Repository class as a service in Program.cs 
-        //TODO: 1) add an instance variable here of type Repository
-
+        //DONE: 0) Register the Repository class as a service in Program.cs 
+        //DONE: 1) add an instance variable here of type Repository
+        private Repository repository;
 
         /***
-         * Constructor - TODO: 2) call for a DIJ Repository object to be passed to the constructor
+         * Constructor - DONE: 2) call for a DIJ Repository object to be passed to the constructor
          **/
-        public SpinnerController()
+        public SpinnerController(Repository repositoryDIJ)
         {
-            //TODO: 3) save the DIJ Repository object into your instance variable
+            //DONE: 3) save the DIJ Repository object into your instance variable
+            repository = repositoryDIJ;
         }
 
         /***
