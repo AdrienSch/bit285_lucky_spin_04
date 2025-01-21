@@ -1,4 +1,5 @@
 ﻿@model LuckySpin.Models.Player
+<!-- After removing the TagHelper, the text field requirements were not displaying. -->
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "_Layout";
@@ -8,8 +9,8 @@
 <form asp-action="Index" asp-controller="Spinner">
     <fieldset>
         <label>
-            <input placeholder=" Your First Name"  />
-            <span ></span>
+            <input asp-for="FirstName" placeholder=" Your First Name"  />
+            <span asp-validation-for="FirstName"></span>
         </label>
         <label>
             <select asp-for="Luck">
