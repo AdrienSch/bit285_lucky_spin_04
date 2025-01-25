@@ -38,7 +38,7 @@ namespace LuckySpin.Controllers
         {
             if(!ModelState.IsValid) { return View(); }
 
-            return RedirectToAction("Spin");
+            return RedirectToAction("Spin", player);
         }
 
         /***
@@ -49,8 +49,8 @@ namespace LuckySpin.Controllers
         {
             //Create a new Spin with the player
             Spin spin = new Spin { Player = player };
-            //TODO: Add to LuckList
-            
+            //DONE: Add to LuckList
+            repository.AddSpin(spin);
 
             return View("Spin", spin);
         }
@@ -61,8 +61,9 @@ namespace LuckySpin.Controllers
         [HttpGet]
         public IActionResult LuckList()
         {
-                //TODO: Pass the repository's Player Spins to the LuckList View
-                return View();
+                //DONE: Pass the repository's Player Spins to the LuckList View
+
+                return View(repository.PlayerSpins);
         }
 
     }
